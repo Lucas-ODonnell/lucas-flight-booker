@@ -6,8 +6,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 airports = Airport.create([
-  {airport_code: 'SFO', name: 'San Francisco International Airport'},
-  {airport_code: 'JFK', name: 'John F. Kennedy International Airport'}
+  { name: 'San Francisco International Airport(SFO)'},
+  { name: 'John F. Kennedy International Airport(JFK)'}
 ])
 
 

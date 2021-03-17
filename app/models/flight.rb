@@ -1,6 +1,6 @@
   #create_table "flights", force: :cascade do |t|
   #  t.integer "origin_id"
-  #  t.integer "destination_id", default: [], array: true
+  #  t.integer "destination_id"
   #  t.integer "duration"
   #  t.date "departure_date", default: [], array: true
   #  t.datetime "created_at", precision: 6, null: false
