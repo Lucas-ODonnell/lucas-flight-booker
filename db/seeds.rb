@@ -20,4 +20,6 @@ flights = Flight.create([
   { origin_id: airports.last.id, destination_id: airports.first.id, duration: 380, departure_time: '13:00'}
 ])
 
+date = (Date.current...Date.current+12.month).to_a
 
+date.map { |day| Trip.create([departure_date: day]) }
