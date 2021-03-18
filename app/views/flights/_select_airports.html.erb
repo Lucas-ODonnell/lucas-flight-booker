@@ -1,6 +1,6 @@
 <%= form_with model: @flight, method: :get, local: true do |form| %>
   <% @airports = Airport.all.map { |airport| [airport.name, airport.id] } %>
-  <% @date = Flight.first.departure_date %>
+ 
 
   <div class="from_airport">
     <%= select_tag(:origin_id, options_for_select(@airports, selected: params[:origin_id]), {prompt: 'From?'}) %>
@@ -14,11 +14,7 @@
       <%= select_tag(:pass_count, options_for_select(1..4, selected: params[:passenger]),{prompt: 'Passengers'}) %>
   </div>
     
-  <div class="date">
-      <%= select_tag(:departure_date, options_for_select(@date.each { |date| date }, selected: params[:departure_date]), {prompt: "date?"})%>
-  </div>
-
-  <div>
+   <div>
       <%= submit_tag("Show flights", class: "button is-info") %>
   </div>
 <% end %>

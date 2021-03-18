@@ -1,8 +1,7 @@
-<%= form_with url: "bookings/new/, method: "get", local: true do |f| %>
+<%= form_with url: "bookings/new/", method: "get", local: true do |f| %>
   <% @available_flights.each do |flight| %>
     <% departure_airport = flight.from_airport.name %>
     <% arrival_airport = flight.to_airport.name %>
-    <% selected_date = flight.departure_date %>
     <% scheduled_time = flight.departure_time %>
 
     <div>

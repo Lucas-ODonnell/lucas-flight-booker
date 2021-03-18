@@ -11,7 +11,7 @@ class FlightsController < ApplicationController
     elsif params[:pass_count].blank?
       flash.now[:alert] = "Select how many passengers are in your party"
     else
-      @available_flights = Flight.where(origin_id: params[:origin_id], destination_id: params[:destination_id], departure_date: params[:departure_date])
+      @available_flights = Flight.where(origin_id: params[:origin_id], destination_id: params[:destination_id])
     end
   end
 
@@ -21,7 +21,6 @@ class FlightsController < ApplicationController
     params.require(:flight).permit(:origin_id,
                                    :destination_id,
                                    :duration,
-                                   :departure_date,
                                    :departure_time)
   end
 end

@@ -20,9 +20,4 @@ flights = Flight.create([
   { origin_id: airports.last.id, destination_id: airports.first.id, duration: 380, departure_time: '13:00'}
 ])
 
-dates = (Date.current..Date.current+1.month).to_a
 
-Flight.all.each do |flight|
-  dates.each { |day| flight.departure_date << day }
-  flight.save
-end
