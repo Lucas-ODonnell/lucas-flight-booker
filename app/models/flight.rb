@@ -19,4 +19,8 @@ class Flight < ApplicationRecord
   class_name: "Airport",
   foreign_key: :destination_id,
   inverse_of: :arriving_flights
+
+  belongs_to :travel_date,
+    class_name: "Trip",
+    foreign_key: :departure_id
 end
