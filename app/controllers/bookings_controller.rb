@@ -1,10 +1,12 @@
 class BookingsController < ApplicationController
 
   def new
-    debugger
     @booking = Booking.new
     @selected_flight = Flight.find(params[:flight])
-    @passengers_count = params[:pass_count].to_i
+    #get number of passengers and build out however many numbers of instances
+    @passengers = params[:pass_count].to_i
+    @passengers.times { @booking.passengers.build }
+
   end
 
   def create
@@ -23,6 +25,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require.(:booking).permit(:flight_id, passenger_attributes: [:name, :email])
+    params.require(:booking).permit(:flight_id, passenger_attributes: [:name, :email])
   end
 end

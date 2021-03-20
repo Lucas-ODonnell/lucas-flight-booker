@@ -1,11 +1,3 @@
-<% if passenger_signed_in? %>
-  <%= link_to 'Sign Out', destroy_passenger_session_path, method: :delete, class: "button is-helper" %>
-  <%= link_to 'Edit your Info', edit_passenger_registration_path, class: "button is-helper" %>
-<% else%>
-  <%= link_to 'Sign Up', new_passenger_registration_path, class: "button is-helper" %>
-  <%= link_to 'Sign In', new_passenger_session_path, class:  "button is-helper" %>
-<% end %>
-
 <h1> Flight Booker 9,0000,000 </h1>
 <div>
 <%= render "select_airports" %>

@@ -1,0 +1,15 @@
+<%= departure_airport = @selected_flight.from_airport.name %>
+<%= arrival_airport = @selected_flight.to_airport.name %>
+<%= selected_date = @selected_flight.travel_date.departure_date %>
+<%= scheduled_time = @selected_flight.departure_time %>
+
+
+<div>
+  <h1> Your Trip Information </h1>
+  <h2>
+    <%= departure_airport %> | <%= arrival_airport %> | <%= selected_date %> | <%= scheduled_time %>
+  </h2>
+</div>
+
+<%= render 'book_tickets'%>
+<%= link_to 'Book a New Flight', root_url %>

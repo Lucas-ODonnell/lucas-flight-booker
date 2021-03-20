@@ -1,0 +1,32 @@
+<%= form_with model: @booking, local: true do |f| %>
+  <% count = 1 %>
+  <%= f.fields_for :passengers do |passengers_info| %>
+      <div>
+          <%= "Passenger #{count}" %><br/>
+      </div>
+        <div>
+          <p>
+          Name:
+            <%= passengers_info.text_field :name, required: true %>
+          </p>
+        </div>
+        <div>
+          <p>
+          Email:
+            <%= passengers_info.email_field :email %>
+          </p>
+        </div>
+      </div>
+    </div>
+    <% count += 1%>
+  <% end %>
+  
+  <%= f.hidden_field :flight_id, value: params[:flight] %>
+
+  <div>
+    <div class="control">
+      <%= f.submit 'Purchase Ticket' %>
+    </div>
+  </div>
+<% end %>
+

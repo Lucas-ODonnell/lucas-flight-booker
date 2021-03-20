@@ -1,28 +1,36 @@
 <%= form_with url: "bookings/new/", method: "get", local: true do |f| %>
-  <% @available_flights.each do |flight| %>
-    <% departure_airport = flight.from_airport.name %>
-    <% arrival_airport = flight.to_airport.name %>
-    <% scheduled_time = flight.departure_time %>
+  <% if Trip.all.any? { |day| day.departure_date == @selected_date } %>
+    <% @available_flights.each do |flight| %>
+      <% departure_airport = flight.from_airport.name %>
+      <% arrival_airport = flight.to_airport.name %>
+      <% scheduled_time = flight.departure_time %>
+      <% departure_date = flight.travel_date.departure_date %>
 
-    <div>
-      <%= radio_button_tag(:flight, flight.id, { checked: true }) %>
-    </div>
+      <div>
+        <%= radio_button_tag(:flight, flight.id, { checked: true }) %>
+      </div>
 
-    <div>
-      <%= scheduled_time %><br />
-      <%= departure_airport %>
-    </div>
+      <div>
+        <%= scheduled_time %><br />
+        <%= departure_airport %>
+      </div>
 
-    <div>
-      Duration:
-      <%= (flight.duration/60.0) %> hours
-    </div>
+      <div>
+        Duration:
+        <%= (flight.duration/60.0) %> hours
+      </div>
 
-    <div>
-      <%= arrival_airport %>
-    </div>
+      <div>
+        <%= arrival_airport %>
+      </div>
+
+      <div>
+        <%= departure_date %>
+      </div>
+    <% end %>
+  <% else %>
+    <%= flash.now[:warning] = "There are no flights on this day" %>
   <% end %>
-
 
   <%= hidden_field_tag :pass_count, params[:pass_count] %>
   <%= f.submit "Choose your flight" %>

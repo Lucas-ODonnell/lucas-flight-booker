@@ -5,7 +5,7 @@ class TripsController < ApplicationController
   end
 
   def create
-    @trip = Trip.new(booking_params)
+    @trip = Trip.new(flight_params)
     if @trip.save
       redirect_to root_path 
     else

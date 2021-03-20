@@ -22,5 +22,6 @@ class Flight < ApplicationRecord
 
   belongs_to :travel_date,
     class_name: "Trip",
-    foreign_key: :departure_id
+    foreign_key: :departure_id,
+    inverse_of: :scheduled_flights
 end
