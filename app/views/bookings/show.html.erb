@@ -20,6 +20,9 @@
     <% end %>
   </table>
 
-      <%= link_to 'Book another flights', root_path %>
+  <%= link_to "Delete Booking", booking_path(@booking), class: "button is-dangerous", method: :delete, data: {confirm: "Are you sure you want to cancel your flight?"} %>
+  <br />
+  <p></p>
+  <%= link_to 'Book another flights', root_path, class: "button is-info" %>
 </div>
 

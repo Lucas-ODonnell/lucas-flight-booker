@@ -24,4 +24,7 @@ class Flight < ApplicationRecord
     class_name: "Trip",
     foreign_key: :departure_id,
     inverse_of: :scheduled_flights
+
+  has_many :bookings
+  has_many :passengers, through: :bookings
 end

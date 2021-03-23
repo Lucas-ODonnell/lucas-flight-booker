@@ -18,14 +18,14 @@
         </div>
       </div>
     </div>
-    <% count += 1%>
+    <% count += 1 %>
   <% end %>
   
   <%= f.hidden_field :flight_id, value: params[:flight] %>
 
   <div>
     <div class="control">
-      <%= f.submit 'Purchase Ticket' %>
+      <%= f.submit 'Purchase Ticket', class: "button is-show" %>
     </div>
   </div>
 <% end %>

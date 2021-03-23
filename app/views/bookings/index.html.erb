@@ -1,0 +1,28 @@
+<h1> All Booked Flights </h1>
+<% @bookings.each do |booking| %>
+<div class="is_bordered">
+  <h1><%= link_to "Trip summary", booking_path(booking), class: "button is-link" %></h1>
+  <h2>Flight on: <%= booking.flight.travel_date.departure_date %></h2>
+  <h3> At <%= booking.flight.departure_time %> hour </h3>
+  <tr>
+    <td>From: <%= booking.flight.from_airport.name %> </td>
+    <td><%= booking.flight.to_airport.name %></td>
+    <td>Duration: <%= booking.flight.duration %>
+  </tr>
+        
+  <h1>Passenger details</h1>
+  <table>
+  <tr>
+    <th>Passenger name</th>
+    <% booking.passengers.each do |passenger| %>
+      <tr>
+        <td><%= passenger.name %></td>
+        <td><%= passenger.email %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+<br />
+<% end %>
+<%= link_to "Book Another Flight", root_path, class: "button is-info" %>
+
