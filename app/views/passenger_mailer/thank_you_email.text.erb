@@ -1,0 +1,11 @@
+Thank you for booking a flight with us, <%= @passenger.name %>
+===============================================
+You have successfully booked a flight to <%= @passenger.booking.flight.to_airport.name %>.
+Your flight is scheduled for: <%= @passenger.booking.flight.travel_date.departure_date %> at
+<%= @passenger.booking.flight.departure_time %>.
+
+To book another flight, just follow this link: <%= @url %>
+
+
+
+

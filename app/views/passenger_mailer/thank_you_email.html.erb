@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Thank you for booking a flight with us, <%= @passenger.name %></h1>
+    <p>
+    You have successfully booked a flight to <%= @passenger.booking.flight.to_airport.name %>.
+    Your flight is scheduled for: <%= @passenger.booking.flight.travel_date.departure_date %> at
+    <%= @passenger.booking.flight.departure_time %>. 
+    <br>
+    </p>
+    <p>
+      To book another flight, just follow this link: <%= @url %>.
+    </p>
+  </body>
+</html>
